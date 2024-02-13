@@ -79,10 +79,18 @@ class _MyWidgetState extends State<BmiCalculatorScreen> {
               children: [
                 Text('Height',style: TitleTextStyle,),
                 Text('${height.toInt()}',style: TitleTextStyle.copyWith(fontSize: 50),),
-                Slider(min:100,max:200,value: height,onChanged: (value){
-                  height=value;
-                  setState(() { });
-                }),
+              SliderTheme(
+                data:SliderThemeData().copyWith(
+                  activeTrackColor: Colors.white,
+                  inactiveTrackColor: Colors.grey,
+                  thumbColor: Colors.pinkAccent,
+                  overlayColor: Colors.pink.withOpacity(0.5)
+                ),
+                  child: Slider(min:100,max:200,value: height,onChanged: (value){
+                    height=value;
+                    setState(() { });
+                  }),
+                ),
               ],
             ),
           ),
